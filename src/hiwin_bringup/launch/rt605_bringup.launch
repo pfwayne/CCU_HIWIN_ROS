@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- robot_ip: IP-address of the robot's socket-messaging server -->
+  <arg name="robot_ip" default="169.254.128.198"/>
+
+  <!-- robot model -->
+  <include file="$(find hiwin_description)/launch/hiwin_6_launch/rt605_upload.launch"/>
+  <!-- moveit-->
+  <!--include file="$(find hiwin_moveit_config)/launch/demo.launch"/-->
+  <!--include file="$(find hiwin_moveit_config)/launch/moveit_planning_execution.launch"/-->
+
+  <!-- driver -->
+  <node name="hiwin_driver" pkg="hiwin_driver" type="hiwin_driver" args="$(arg robot_ip)" output="screen"/>
+
+  
+  
+  
+</launch>

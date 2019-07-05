@@ -1,0 +1,9 @@
+<library path="lib/libhiwin_rviz">
+  <class name="hiwin_rviz/HiwinPannel"
+         type="hiwin_rviz_plugin::HiwinPannel"
+         base_class_type="rviz::Panel">
+    <description>
+      Hiwin robot base control.
+    </description>
+  </class>
+</library>

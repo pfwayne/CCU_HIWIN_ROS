@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: hiwin_description
+    relative_path: urdf\hiwin_arm_6dot.urdf
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config\hiwin_6dot.srdf
+  CONFIG:
+    author_name: thc
+    author_email: thc@csie.io
+    generated_timestamp: 1556881514

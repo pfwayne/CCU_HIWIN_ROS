@@ -1,0 +1,9 @@
+controller_list:
+  - name: fake_hiwin_arm_controller
+    joints:
+      - j_0001
+      - j_0102
+      - j_0203
+      - j_0304
+      - j_0405
+      - j_0506

@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<robot name="hiwin_6dot">
+    <link name="base_link">
+        <visual>
+            <origin xyz=" 0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hiwin_description/meshes/RA605/RA605_0.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="ra605_1">
+        <visual>
+            <origin xyz=" 0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hiwin_description/meshes/RA605/RA605_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="ra605_2">
+        <visual>
+            <origin xyz=" 0 -0.0335 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hiwin_description/meshes/RA605/RA605_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="ra605_3">
+        <visual>
+            <origin xyz=" 0 -0.03 -0.35" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hiwin_description/meshes/RA605/RA605_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="ra605_4">
+        <visual>
+            <origin xyz=" 0 -0.03 -0.38" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hiwin_description/meshes/RA605/RA605_4.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 0.4 0 1"/>
+            </material>
+        </visual>
+    </link>
+    <link name="ra605_5">
+        <visual>
+            <origin xyz=" 0 -0.365 -0.38" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hiwin_description/meshes/RA605/RA605_5.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="ra605_6">
+        <visual>
+            <origin xyz=" 0 -0.45 -0.38" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hiwin_description/meshes/RA605/RA605_6.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+    <joint name="j_0001" type="continuous">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="ra605_1"/>
+        <axis xyz="0 0 1"/>
+		  <safety_controller k_velocity="2" k_position="15" soft_lower_limit="1.65" soft_upper_limit="-1.65"/>
+		  <calibration falling="0" rising="0"/>
+		  <dynamics damping="0" friction="0"/>
+	</joint>
+    <joint name="j_0102" type="continuous">
+        <origin xyz="0 0.033 0.005" rpy="0 0 0"/>
+        <parent link="ra605_1"/>
+        <child link="ra605_2"/>
+        <axis xyz="1 0 0"/>
+		  <safety_controller k_velocity="2" k_position="15" soft_lower_limit="-1.25" soft_upper_limit="0.85"/>
+		  <calibration falling="0" rising="0"/>
+		  <dynamics damping="0" friction="0"/> 
+	</joint>
+    <joint name="j_0203" type="continuous">
+        <origin xyz="0 0 0.35" rpy="0 0 0"/>
+        <parent link="ra605_2"/>
+        <child link="ra605_3"/>
+        <axis xyz="1 0 0"/>
+		  <safety_controller k_velocity="2" k_position="15" soft_lower_limit="-0.55" soft_upper_limit="1.85"/>
+		  <calibration falling="0" rising="0"/>
+		  <dynamics damping="0" friction="0"/> 
+	</joint>
+    <joint name="j_0304" type="continuous">
+        <origin xyz="0 0 0.03" rpy="0 0 0"/>
+        <parent link="ra605_3"/>
+        <child link="ra605_4"/>
+        <axis xyz="0 1 0"/>
+		  <safety_controller k_velocity="2" k_position="15" soft_lower_limit="-1.90" soft_upper_limit="1.90"/>
+		  <calibration falling="0" rising="0"/>
+		  <dynamics damping="0" friction="0"/>
+	 </joint>
+    <joint name="j_0405" type="continuous">
+        <origin xyz="0 0.35 0" rpy="0 0 0"/>
+        <parent link="ra605_4"/>
+        <child link="ra605_5"/>
+        <axis xyz="1 0 0"/>
+		  <safety_controller k_velocity="2" k_position="15" soft_lower_limit="-1.15" soft_upper_limit="1.15"/>
+		  <calibration falling="0" rising="0"/>
+		  <dynamics damping="0" friction="0"/>
+	 </joint>
+    <joint name="j_0506" type="continuous">
+        <origin xyz="0 0.075 0" rpy="0 0 0"/>
+        <parent link="ra605_5"/>
+        <child link="ra605_6"/>
+        <axis xyz="0 1 0"/>
+		  <safety_controller k_velocity="2" k_position="15" soft_lower_limit="-3.60" soft_upper_limit="3.60"/>
+		  <calibration falling="0" rising="0"/>
+		  <dynamics damping="0" friction="0"/>
+	 </joint>
+</robot>
