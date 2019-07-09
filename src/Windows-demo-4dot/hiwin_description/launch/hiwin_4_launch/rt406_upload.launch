@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro C:\\hiwin_ws\\src\\hiwin_description\\urdf\\hiwin_arm_4dot.xacro" /> 
+</launch>

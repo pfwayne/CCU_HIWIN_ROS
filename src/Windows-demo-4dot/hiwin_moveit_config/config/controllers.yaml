@@ -1,0 +1,9 @@
+controller_list:
+  - name: hiwin_4dot/follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - j_0001
+      - j_0102
+      - j_02sq
+      - j_sq03

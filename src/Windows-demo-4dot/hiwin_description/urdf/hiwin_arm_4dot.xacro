@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<robot name="hiwin_4dot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <link name="base_link">
+        <visual>
+            <origin xyz=" 0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hiwin_description/meshes/RS406/RS406_0.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="rs406_1">
+        <visual>
+            <origin xyz=" 0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hiwin_description/meshes/RS406/RS406_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="rs406_2">
+        <visual>
+            <origin xyz=" 0 -0.325 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hiwin_description/meshes/RS406/RS406_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="sq">
+        <visual>
+            <origin xyz=" 0 0 0.05" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.02" length="0.01"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="rs406_3">
+        <visual>
+            <origin xyz=" 0 -0.6 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://hiwin_description/meshes/RS406/RS406_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="j_0001" type="continuous">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="rs406_1"/>
+        <axis xyz="0 0 1"/>
+		  <safety_controller k_velocity="2" k_position="15" soft_lower_limit="-1.28" soft_upper_limit="1.28"/>
+    </joint>
+    <joint name="j_0102" type="continuous">
+        <origin xyz="0 0.325 0" rpy="0 0 0"/>
+        <parent link="rs406_1"/>
+        <child link="rs406_2"/>
+        <axis xyz="0 0 1"/>
+		  <safety_controller k_velocity="2" k_position="15" soft_lower_limit="1.3" soft_upper_limit="-1.3"/>
+    </joint>
+    <joint name="j_02sq" type="prismatic">
+        <origin xyz="0 0.275 0" rpy="0 0 0"/>
+        <parent link="rs406_2"/>
+        <child link="sq"/>
+        <axis xyz="0 0 1"/>
+		  <limit lower="-0.15" upper="0" effort="2" velocity="2"/>
+    </joint>
+    <joint name="j_sq03" type="continuous">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="sq"/>
+        <child link="rs406_3"/>
+        <axis xyz="0 0 1"/>
+		  <safety_controller k_velocity="2" k_position="15" soft_lower_limit="3.6" soft_upper_limit="-3.6"/>
+    </joint>
+
+</robot>

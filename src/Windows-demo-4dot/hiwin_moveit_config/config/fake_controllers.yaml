@@ -1,0 +1,7 @@
+controller_list:
+  - name: fake_RS406_arm_controller
+    joints:
+      - j_0001
+      - j_0102
+      - j_02sq
+      - j_sq03
